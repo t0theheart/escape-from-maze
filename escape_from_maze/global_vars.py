@@ -1,5 +1,7 @@
 
-wall = '@'  # view of wall
+wall_view = '@'  # wall's view
+
+player_view = 'A'  # player's view
 
 maze_indents = (3, 5)  # horizontal and vertical indents
 
