@@ -1,0 +1,1 @@
+from escape_from_maze.handlers.change_window_size import change_window_size_handler
