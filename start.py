@@ -34,7 +34,7 @@ def main(window):
             player = Player(x, y, window, player_view)
             window.refresh()
 
-        elif start and player:
+        elif start and key in player.keys_map.keys():
             player.do_move(key)
             window.refresh()
 
