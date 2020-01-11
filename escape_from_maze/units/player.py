@@ -1,16 +1,13 @@
 from escape_from_maze.units import Unit
+from escape_from_maze.global_vars import player_view, player_color, keys_map
 
 
 class Player(Unit):
 
-    def __init__(self, x, y, window, view):
-        super().__init__(x, y, window, view)
-        self.keys_map = {
-            259: (1, 0),
-            258: (-1, 0),
-            260: (0, 1),
-            261: (0, -1)
-        }
+    color = player_color
+
+    def __init__(self, x, y, window):
+        super().__init__(x, y, window, player_view)
 
     def do_move(self, key):
-        self._do_move(self.keys_map[key])
+        self._do_move(keys_map[key])
