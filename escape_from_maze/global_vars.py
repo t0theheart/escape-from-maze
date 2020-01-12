@@ -3,6 +3,8 @@ wall_view = '@'  # wall's view
 
 player_view = 'A'  # player's view
 
+enemy_view = '&'  # enemy's view
+
 maze_indents = (3, 5)  # horizontal and vertical indents
 
 

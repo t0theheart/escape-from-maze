@@ -1,5 +1,6 @@
 import curses
 from escape_from_maze.maze_generator import generate_maze
+from escape_from_maze.enemies_generator import generate_enemies
 from escape_from_maze.units import Player
 from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start
 from escape_from_maze.colors import init_colors
@@ -41,6 +42,7 @@ def main(window):
             x = coordinates[0] + 1
             y = coordinates[2] + 1
             player = Player(x, y, window)
+            generate_enemies(coordinates, window)
 
         elif start and key in keys_map.keys():
             player.do_move(key)
