@@ -1,4 +1,4 @@
-from escape_from_maze.global_vars import enemy_view
+from escape_from_maze.units import Enemy
 import random
 
 
@@ -26,4 +26,4 @@ def generate_enemies(coordinates, window):
 
     for n in range(count):
         x, y = get_enemy_coordinates(*enemies_area)
-        window.addstr(x, y, enemy_view)
+        Enemy(x, y, window)

@@ -24,3 +24,4 @@ start_text_len = len(start_text)
 # numbers of colors for game objects
 start_text_color = 2
 player_color = 3
+enemy_color = 4
