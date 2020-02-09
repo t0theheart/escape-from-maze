@@ -34,3 +34,5 @@ def generate_enemies(coordinates, window):
     for _ in range(amount):
         x, y = get_enemy_coordinates(*enemies_area)
         Enemy(x, y, window)
+
+    return amount

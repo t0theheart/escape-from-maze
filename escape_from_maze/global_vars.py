@@ -21,6 +21,9 @@ random_wall_map = tuple(keys_map.values())  # coordinates for building random wa
 start_text = 'Press "Space" to start!'
 start_text_len = len(start_text)
 
+enemies_text = 'Enemies: '
+enemies_text_len = len(enemies_text)
+
 # numbers of colors for game objects
 start_text_color = 2
 player_color = 3
