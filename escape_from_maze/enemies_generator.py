@@ -1,4 +1,6 @@
 from escape_from_maze.units import Enemy
+from escape_from_maze.utils import compute_square
+from escape_from_maze.global_vars import enemy_divider
 import random
 
 
@@ -20,10 +22,15 @@ def get_enemy_coordinates(top, bottom, left, right):
     return x, y
 
 
+def get_enemies_amount(coordinates):
+    amount = compute_square(coordinates) // enemy_divider
+    return amount
+
+
 def generate_enemies(coordinates, window):
     enemies_area = get_enemies_area(coordinates)
-    count = 50
+    amount = get_enemies_amount(coordinates)
 
-    for n in range(count):
+    for _ in range(amount):
         x, y = get_enemy_coordinates(*enemies_area)
         Enemy(x, y, window)

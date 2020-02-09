@@ -25,3 +25,6 @@ start_text_len = len(start_text)
 start_text_color = 2
 player_color = 3
 enemy_color = 4
+
+# dividers for maze's objects
+enemy_divider = 100
