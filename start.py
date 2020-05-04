@@ -1,6 +1,7 @@
 import curses
 from escape_from_maze.maze_generator import generate_maze
 from escape_from_maze.enemies_generator import generate_enemies
+from escape_from_maze.enemies_manager.enemies_manager import EnemiesManager
 from escape_from_maze.units import Player
 from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount
 from escape_from_maze.colors import init_colors
@@ -22,6 +23,8 @@ def main(window):
     start = False
     player = None
 
+    enemies_manager = EnemiesManager()
+
     while True:
         height, width = window.getmaxyx()
         if window_height_width[0] != height or window_height_width[1] != width:
@@ -42,8 +45,11 @@ def main(window):
             x = coordinates[0] + 1
             y = coordinates[2] + 1
             player = Player(x, y, window)
-            enemies_amount = generate_enemies(coordinates, window)
-            print_enemies_amount(window, enemies_amount)
+            enemies = generate_enemies(coordinates, window)
+            print_enemies_amount(window, len(enemies))
+
+            enemies_manager.take_enemies(enemies)
+            enemies_manager.start()
 
         elif start and key in keys_map.keys():
             player.do_move(key)

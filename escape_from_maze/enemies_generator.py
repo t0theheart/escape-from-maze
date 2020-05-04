@@ -27,12 +27,13 @@ def get_enemies_amount(coordinates):
     return amount
 
 
-def generate_enemies(coordinates, window):
+def generate_enemies(coordinates, window) -> list:
     enemies_area = get_enemies_area(coordinates)
     amount = get_enemies_amount(coordinates)
+    enemies = []
 
     for _ in range(amount):
         x, y = get_enemy_coordinates(*enemies_area)
-        Enemy(x, y, window)
+        enemies.append(Enemy(x, y, window))
 
-    return amount
+    return enemies

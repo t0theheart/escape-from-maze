@@ -31,3 +31,10 @@ class Unit:
         if chr(onward) == wall_view:
             return False
         return True
+
+    def _get_free_moves(self, keys_map: dict) -> list:
+        free_moves = []
+        for key, move in keys_map.items():
+            if self._allow_to_move(move):
+                free_moves.append(key)
+        return free_moves

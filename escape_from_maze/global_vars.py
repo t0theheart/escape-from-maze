@@ -16,6 +16,14 @@ keys_map = {        # keys: params from pressing keyboard arrows buttons ( windo
 }
 
 
+keys_map_reversed = {
+    259: 258,
+    258: 259,
+    260: 261,
+    261: 260
+}
+
+
 random_wall_map = tuple(keys_map.values())  # coordinates for building random walls in maze
 
 start_text = 'Press "Space" to start!'
