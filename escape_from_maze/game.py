@@ -51,9 +51,7 @@ class Game:
             if not self.started and key == 32:
                 self.started = True
                 remove_press_space_to_start(self.window, height, width)
-                x = coordinates[0] + 1
-                y = coordinates[2] + 1
-                self.player = Player(x, y, self)
+                self.player = Player(coordinates, self)
 
                 enemies = generate_enemies(coordinates, self)
                 print_enemies_amount(self.window, len(enemies))
