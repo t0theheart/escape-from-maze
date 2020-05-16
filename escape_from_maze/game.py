@@ -62,7 +62,7 @@ class Game:
             elif self.started and key in keys_map.keys():
                 self.player.do_move(key)
 
-            window.refresh()
+            self.window.refresh()
 
     def lose_game(self):
         sleep(3)
