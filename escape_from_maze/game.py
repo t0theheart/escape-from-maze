@@ -23,6 +23,7 @@ class Game:
         self.started = False
         self.player = None
         self.window = None
+        self.game_over = False
 
     def _prepare_game(self, window):
         self.window = window
@@ -46,7 +47,7 @@ class Game:
             if not self.started:
                 print_press_space_to_start(self.window, height, width)
 
-            key = window.getch()
+            key = self.window.getch()
 
             if not self.started and key == 32:
                 self.started = True
@@ -59,17 +60,20 @@ class Game:
                 self.enemies_manager.take_enemies(enemies)
                 self.enemies_manager.start()
 
-            elif self.started and key in keys_map.keys():
+            elif self.started and not self.game_over and key in keys_map.keys():
                 self.player.do_move(key)
 
             self.window.refresh()
 
     def lose_game(self):
-        sleep(3)
+        self.game_over = True
+        sleep(1)
         self.window.erase()
         self.enemies_manager.stop()
         text = 'GAME OVER'
         height, width = self.window_height_width
         height = (height // 2) - 1
-        width = (width // 2) - 1 - len(text)//2
+        width = (width // 2) - 2 - len(text)//2
+        curses.init_pair(6, curses.COLOR_WHITE, curses.COLOR_RED)
+        self.window.bkgd(' ', curses.color_pair(6) | curses.A_BOLD)
         self.window.addstr(height, width, text)

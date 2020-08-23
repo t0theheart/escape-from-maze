@@ -33,6 +33,7 @@ class Unit:
         _x -= move[0]
         _y -= move[1]
         onward = self.game.window.inch(_x, _y)
+        self.game.window.addstr(1, 0, str(onward))
         if chr(onward) == wall_view:
             return False
         return True
