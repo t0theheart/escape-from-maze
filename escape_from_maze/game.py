@@ -15,41 +15,33 @@ def print_h_w_window(window, height, width):
 
 
 class Game:
-    def __init__(self):
+    def __init__(self, window):
         self.enemies_manager = EnemiesManager()
         self.player = None
         self.window_height_width = (0, 0)
-        self.view_ord_map = {}
-        self.started = False
-        self.player = None
-        self.window = None
-        self.game_over = False
-
-    def _prepare_game(self, window):
-        self.window = window
         self.view_ord_map = get_view_with_color_and_ord_map()
+        self.started = False
+        self.window = window
+        self.game_over = False
+        self._init_settings()
+
+    def _init_settings(self):
         self.window.nodelay(True)
         curses.curs_set(False)
         init_colors()
 
-    def start(self, window):
-        self._prepare_game(window)
-
+    def _before_press_start(self):
         while True:
-            height, width = window.getmaxyx()
+            height, width = self.window.getmaxyx()
             if self.window_height_width[0] != height or self.window_height_width[1] != width:
                 self.window.clear()
                 coordinates = generate_maze(self.window, height, width)
                 self.window_height_width = height, width
 
             print_h_w_window(self.window, height, width)
-
-            if not self.started:
-                print_press_space_to_start(self.window, height, width)
-
+            print_press_space_to_start(self.window, height, width)
             key = self.window.getch()
-
-            if not self.started and key == 32:
+            if key == 32:
                 self.started = True
                 remove_press_space_to_start(self.window, height, width)
                 self.player = Player(coordinates, self)
@@ -59,11 +51,21 @@ class Game:
 
                 self.enemies_manager.take_enemies(enemies)
                 self.enemies_manager.start()
+                break
 
-            elif self.started and not self.game_over and key in keys_map.keys():
+            self.window.refresh()
+
+    def _after_press_start(self):
+        while True:
+            key = self.window.getch()
+            if not self.game_over and key in keys_map.keys():
                 self.player.do_move(key)
 
             self.window.refresh()
+
+    def start(self):
+        self._before_press_start()
+        self._after_press_start()
 
     def lose_game(self):
         self.game_over = True
