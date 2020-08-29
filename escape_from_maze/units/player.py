@@ -12,8 +12,8 @@ class Player(Unit):
 
     @staticmethod
     def _calculate_start_coordinates(coordinates: tuple) -> tuple:
-        x = coordinates[0] + 1
-        y = coordinates[2] + 1
+        x = coordinates[1] // 2 + 2
+        y = coordinates[3] // 2 + 2
         return x, y
 
     def _do_action(self, item_here: str):
