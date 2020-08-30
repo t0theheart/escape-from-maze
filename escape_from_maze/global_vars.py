@@ -5,6 +5,8 @@ player_view = 'A'  # player's view
 
 enemy_view = '&'  # enemy's view
 
+key_view = 'K'  # key's view
+
 maze_indents = (3, 5)  # horizontal and vertical indents
 
 
@@ -36,6 +38,7 @@ enemies_text_len = len(enemies_text)
 start_text_color = 2
 player_color = 3
 enemy_color = 4
+key_color = 5
 
 # dividers for maze's objects
 enemy_divider = 100
