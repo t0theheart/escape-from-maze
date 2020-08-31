@@ -1,4 +1,3 @@
-from escape_from_maze.global_vars import wall_view
 import curses
 
 
@@ -12,7 +11,7 @@ class Unit:
         self.view = view
         self.game = game
         self._create()
-        self._not_allow_do_move = [ord(wall_view), 1355]
+        self._not_allow_do_move = [self.game.objects_view.get('wall').ord]
 
     def _create(self):
         self.game.window.addstr(self.x, self.y, self.view, curses.color_pair(self.color))
@@ -25,7 +24,7 @@ class Unit:
             self.game.window.addstr(self.x, self.y, ' ')
             self.x -= move[0]
             self.y -= move[1]
-            item_here = self.game.view_ord_map.get(self.game.window.inch(self.x, self.y))
+            item_here = self.game.window.inch(self.x, self.y)
             self.game.window.addstr(self.x, self.y, self.view, curses.color_pair(self.color))
             self._do_action(item_here)
 
@@ -34,7 +33,6 @@ class Unit:
         _x -= move[0]
         _y -= move[1]
         onward = self.game.window.inch(_x, _y)
-        # self.game.window.addstr(1, 0, str(onward))
         if onward in self._not_allow_do_move:
             return False
         return True

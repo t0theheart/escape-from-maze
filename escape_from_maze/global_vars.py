@@ -35,6 +35,7 @@ enemies_text = 'Enemies: '
 enemies_text_len = len(enemies_text)
 
 # numbers of colors for game objects
+white = 0
 yellow = 2
 blue = 3
 red = 4
