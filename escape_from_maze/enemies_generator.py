@@ -30,6 +30,7 @@ def get_enemies_amount(coordinates):
 def generate_enemies(coordinates, game) -> list:
     enemies_area = get_enemies_area(coordinates)
     amount = get_enemies_amount(coordinates)
+    amount = 1
     enemies = []
 
     for _ in range(amount):

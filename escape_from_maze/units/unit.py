@@ -12,6 +12,7 @@ class Unit:
         self.view = view
         self.game = game
         self._create()
+        self._not_allow_do_move = [ord(wall_view), 1355]
 
     def _create(self):
         self.game.window.addstr(self.x, self.y, self.view, curses.color_pair(self.color))
@@ -33,8 +34,8 @@ class Unit:
         _x -= move[0]
         _y -= move[1]
         onward = self.game.window.inch(_x, _y)
-        self.game.window.addstr(1, 0, str(onward))
-        if chr(onward) == wall_view:
+        # self.game.window.addstr(1, 0, str(onward))
+        if onward in self._not_allow_do_move:
             return False
         return True
 

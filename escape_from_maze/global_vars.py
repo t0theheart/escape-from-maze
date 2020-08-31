@@ -35,10 +35,9 @@ enemies_text = 'Enemies: '
 enemies_text_len = len(enemies_text)
 
 # numbers of colors for game objects
-start_text_color = 2
-player_color = 3
-enemy_color = 4
-key_color = 5
+yellow = 2
+blue = 3
+red = 4
 
 # dividers for maze's objects
 enemy_divider = 100

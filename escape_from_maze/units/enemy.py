@@ -1,11 +1,11 @@
 from escape_from_maze.units import Unit
-from escape_from_maze.global_vars import enemy_view, enemy_color, keys_map, keys_map_reversed, player_view
+from escape_from_maze.global_vars import enemy_view, red, keys_map, keys_map_reversed, player_view
 import random
 
 
 class Enemy(Unit):
 
-    color = enemy_color
+    color = red
 
     def __init__(self, x, y, game):
         super().__init__(x, y, enemy_view, game)
