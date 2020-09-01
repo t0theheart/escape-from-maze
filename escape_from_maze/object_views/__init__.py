@@ -1,1 +1,1 @@
-from .objects_views import ObjectViews
+from .object_views import ObjectViews
