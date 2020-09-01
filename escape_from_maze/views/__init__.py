@@ -2,3 +2,4 @@ from escape_from_maze.views.start_text import print_press_space_to_start
 from escape_from_maze.views.start_text import remove_press_space_to_start
 
 from escape_from_maze.views.enemies_text import print_enemies_amount
+from escape_from_maze.views.keys_text import print_keys_amount

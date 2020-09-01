@@ -4,7 +4,7 @@ from escape_from_maze.enemies_generator import generate_enemies
 from escape_from_maze.keys_generator import generate_keys, clear_area_around_keys
 from escape_from_maze.enemies_manager.enemies_manager import EnemiesManager
 from escape_from_maze.units import Player
-from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount
+from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, print_keys_amount
 from escape_from_maze.global_vars import keys_map
 from escape_from_maze.object_views import ObjectViews
 from time import sleep
@@ -36,22 +36,24 @@ class Game:
             if self.window_height_width[0] != height or self.window_height_width[1] != width:
                 self.window.clear()
                 coordinates = generate_maze(self.window, height, width)
-                self.window.addstr(2, 0, '{0}, {1}, {2}, {3}'.format(*coordinates))
+                # self.window.addstr(2, 0, '{0}, {1}, {2}, {3}'.format(*coordinates))
                 self.window_height_width = height, width
 
-            print_h_w_window(self.window, height, width)
+            #print_h_w_window(self.window, height, width)
             print_press_space_to_start(self.window, height, width)
             key = self.window.getch()
             if key == 32:
                 self.started = True
                 remove_press_space_to_start(self.window, height, width)
+
                 self.player = Player(coordinates, self)
+
+                keys = generate_keys(coordinates, self)
+                print_keys_amount(self.window, len(keys))
+                clear_area_around_keys(coordinates, self)
 
                 enemies = generate_enemies(coordinates, self)
                 print_enemies_amount(self.window, len(enemies))
-
-                keys = generate_keys(coordinates, self)
-                clear_area_around_keys(coordinates, self)
 
                 self.enemies_manager.take_enemies(enemies)
                 self.enemies_manager.start()

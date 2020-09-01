@@ -34,6 +34,10 @@ start_text_len = len(start_text)
 enemies_text = 'Enemies: '
 enemies_text_len = len(enemies_text)
 
+
+keys_text = 'Keys: '
+keys_text_len = len(keys_text)
+
 # numbers of colors for game objects
 white = 0
 yellow = 2
