@@ -18,6 +18,11 @@ class Player(Unit):
         if item_here == self.game.objects_view.get('enemy').ord:
             self._replace(self.game.objects_view.get('enemy').view, self.game.objects_view.get('enemy').color)
             self.game.lose_game()
+        elif item_here == self.game.objects_view.get('key').ord:
+            self.game.keys_text.up_and_print_keys_amount()
+            if self.game.keys_text.collected_keys == self.game.keys_text.total_keys:
+                self._replace(self.game.objects_view.get('player').view, self.game.objects_view.get('player').color)
+                self.game.win_game()
 
     def do_move(self, key):
         self._do_move(keys_map[key])
