@@ -4,7 +4,7 @@ from escape_from_maze.enemies_generator import generate_enemies
 from escape_from_maze.keys_generator import generate_keys, clear_area_around_keys
 from escape_from_maze.enemies_manager.enemies_manager import EnemiesManager
 from escape_from_maze.units import Player
-from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, print_keys_amount
+from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, KeysText
 from escape_from_maze.global_vars import keys_map
 from escape_from_maze.object_views import ObjectViews
 from escape_from_maze.colors import init_colors
@@ -18,13 +18,14 @@ def print_h_w_window(window, height, width):
 
 class Game:
     def __init__(self, window):
+        self.window = window
         self._init_settings()
         self.enemies_manager = EnemiesManager()
         self.objects_view = ObjectViews()
+        self.keys_text = None
         self.player = None
         self.window_height_width = (0, 0)
         self.started = False
-        self.window = window
         self.game_over = False
 
     def _init_settings(self):
@@ -51,7 +52,8 @@ class Game:
                 self.player = Player(coordinates, self)
 
                 keys = generate_keys(coordinates, self)
-                print_keys_amount(self.window, len(keys))
+                self.keys_text = KeysText(self.window, len(keys))
+                self.keys_text.print_keys_amount()
                 clear_area_around_keys(coordinates, self)
 
                 enemies = generate_enemies(coordinates, self)
