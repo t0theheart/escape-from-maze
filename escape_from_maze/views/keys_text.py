@@ -8,7 +8,7 @@ class KeysText:
         self.total_keys = total_keys
         self.collected_keys = 0
         self.indent = maze_indents[0] + 2
-        self.indent_with_text = self._indent + keys_text_len
+        self.indent_with_text = self.indent + keys_text_len
 
     def print_keys_amount(self):
         self.window.addstr(1, self.indent, keys_text.format(self.total_keys))
