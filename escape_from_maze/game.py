@@ -7,6 +7,7 @@ from escape_from_maze.units import Player
 from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, print_keys_amount
 from escape_from_maze.global_vars import keys_map
 from escape_from_maze.object_views import ObjectViews
+from escape_from_maze.colors import init_colors
 from time import sleep
 
 
@@ -17,6 +18,7 @@ def print_h_w_window(window, height, width):
 
 class Game:
     def __init__(self, window):
+        self._init_settings()
         self.enemies_manager = EnemiesManager()
         self.objects_view = ObjectViews()
         self.player = None
@@ -24,9 +26,9 @@ class Game:
         self.started = False
         self.window = window
         self.game_over = False
-        self._init_settings()
 
     def _init_settings(self):
+        init_colors()
         self.window.nodelay(True)
         curses.curs_set(False)
 
