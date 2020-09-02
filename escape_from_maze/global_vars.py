@@ -45,5 +45,8 @@ yellow = 2
 blue = 3
 red = 4
 
+lose_game_screen = 66
+win_game_screen = 77
+
 # dividers for maze's objects
 enemy_divider = 100

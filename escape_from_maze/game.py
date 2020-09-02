@@ -5,7 +5,7 @@ from escape_from_maze.keys_generator import generate_keys, clear_area_around_key
 from escape_from_maze.enemies_manager.enemies_manager import EnemiesManager
 from escape_from_maze.units import Player
 from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, KeysText
-from escape_from_maze.global_vars import keys_map, yellow, black
+from escape_from_maze.global_vars import keys_map, lose_game_screen, win_game_screen
 from escape_from_maze.object_views import ObjectViews
 from escape_from_maze.colors import init_colors
 from time import sleep
@@ -77,28 +77,25 @@ class Game:
         self._before_press_start()
         self._after_press_start()
 
-    def lose_game(self):
-        self.game_over = True
+    def _end_game(self):
         sleep(1)
+        self.game_over = True
         self.window.erase()
         self.enemies_manager.stop()
-        text = 'GAME OVER'
-        height, width = self.window_height_width
-        height = (height // 2) - 1
-        width = (width // 2) - 2 - len(text)//2
-        curses.init_pair(6, curses.COLOR_WHITE, curses.COLOR_RED)
-        self.window.bkgd(' ', curses.color_pair(6) | curses.A_BOLD)
-        self.window.addstr(height, width, text)
 
-    def win_game(self):
-        self.game_over = True
-        sleep(1)
-        self.window.erase()
-        self.enemies_manager.stop()
-        text = 'CONGRATULATIONS, YOU WIN'
+    def _show_screen(self, phrase: str, screen_color: int):
         height, width = self.window_height_width
         height = (height // 2) - 1
-        width = (width // 2) - len(text) // 2
-        curses.init_pair(7, black, yellow)
-        self.window.bkgd(' ', curses.color_pair(7) | curses.A_BOLD)
-        self.window.addstr(height, width, text)
+        width = (width // 2) - len(phrase) // 2
+        self.window.bkgd(' ', curses.color_pair(screen_color) | curses.A_BOLD)
+        self.window.addstr(height, width, phrase)
+
+    def lose_game(self):
+        phrase = 'GAME OVER'
+        self._end_game()
+        self._show_screen(phrase, lose_game_screen)
+        
+    def win_game(self):
+        phrase = 'CONGRATULATIONS, YOU WIN'
+        self._end_game()
+        self._show_screen(phrase, win_game_screen)
