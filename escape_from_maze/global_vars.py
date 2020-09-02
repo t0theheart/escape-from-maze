@@ -40,6 +40,7 @@ keys_text_len = len(keys_text)
 
 # numbers of colors for game objects
 white = 0
+black = 11
 yellow = 2
 blue = 3
 red = 4

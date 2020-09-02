@@ -5,7 +5,7 @@ from escape_from_maze.keys_generator import generate_keys, clear_area_around_key
 from escape_from_maze.enemies_manager.enemies_manager import EnemiesManager
 from escape_from_maze.units import Player
 from escape_from_maze.views import print_press_space_to_start, remove_press_space_to_start, print_enemies_amount, KeysText
-from escape_from_maze.global_vars import keys_map, yellow
+from escape_from_maze.global_vars import keys_map, yellow, black
 from escape_from_maze.object_views import ObjectViews
 from escape_from_maze.colors import init_colors
 from time import sleep
@@ -91,4 +91,14 @@ class Game:
         self.window.addstr(height, width, text)
 
     def win_game(self):
-        pass
+        self.game_over = True
+        sleep(1)
+        self.window.erase()
+        self.enemies_manager.stop()
+        text = 'CONGRATULATIONS, YOU WIN'
+        height, width = self.window_height_width
+        height = (height // 2) - 1
+        width = (width // 2) - len(text) // 2
+        curses.init_pair(7, black, yellow)
+        self.window.bkgd(' ', curses.color_pair(7) | curses.A_BOLD)
+        self.window.addstr(height, width, text)
