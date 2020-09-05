@@ -78,10 +78,10 @@ class Game:
         self._after_press_start()
 
     def _end_game(self):
-        sleep(1)
         self.game_over = True
-        self.window.erase()
         self.enemies_manager.stop()
+        sleep(1)
+        self.window.erase()
 
     def _show_screen(self, phrase: str, screen_color: int):
         height, width = self.window_height_width
