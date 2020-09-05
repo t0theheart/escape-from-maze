@@ -46,7 +46,7 @@ enemy = 34
 # service colors
 # white = 0
 black = 11
-yellow = 3
+yellow = 12
 # blue = 3
 # red = 4
 

@@ -18,6 +18,7 @@ def init_colors():
     init_color(wall, (800, 800, 800))
 
     init_color(black, (0, 0, 0))
+    init_color(yellow, (855, 730, 150))
 
     init_background(lose_game_screen, curses.COLOR_WHITE, curses.COLOR_RED)
     init_background(win_game_screen, black, yellow)
