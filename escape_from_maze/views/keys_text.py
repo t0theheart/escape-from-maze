@@ -1,4 +1,4 @@
-from escape_from_maze.global_vars import keys_text, keys_text_len, maze_indents, yellow
+from escape_from_maze.global_vars import keys_text, keys_text_len, maze_indents, key
 import curses
 
 
@@ -12,7 +12,7 @@ class KeysText:
 
     def print_keys_amount(self):
         self.window.addstr(1, self.indent, keys_text.format(self.total_keys))
-        self.window.addstr(1, self.indent_with_text, f'{self.collected_keys}/{self.total_keys}', curses.color_pair(yellow))
+        self.window.addstr(1, self.indent_with_text, f'{self.collected_keys}/{self.total_keys}', curses.color_pair(key))
 
     def up_and_print_keys_amount(self):
         self.collected_keys += 1
