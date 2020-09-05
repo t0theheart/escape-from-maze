@@ -1,6 +1,6 @@
 from escape_from_maze.units import Enemy
 from escape_from_maze.utils import compute_square
-from escape_from_maze.global_vars import enemy_divider
+from escape_from_maze.config import enemy_divider
 import random
 
 

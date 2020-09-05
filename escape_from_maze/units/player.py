@@ -1,5 +1,5 @@
 from escape_from_maze.units import Unit
-from escape_from_maze.global_vars import keys_map
+from escape_from_maze.config import keys_map
 
 
 class Player(Unit):

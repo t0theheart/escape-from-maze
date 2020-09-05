@@ -1,5 +1,5 @@
-from escape_from_maze.global_vars import enemy, player, key, wall
-from escape_from_maze.global_vars import player_view, enemy_view, key_view, wall_view
+from escape_from_maze.config import enemy, player, key, wall
+from escape_from_maze.config import player_view, enemy_view, key_view, wall_view
 from .object_view import ObjectView
 
 

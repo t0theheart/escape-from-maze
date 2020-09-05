@@ -1,5 +1,5 @@
 from escape_from_maze.units import Unit
-from escape_from_maze.global_vars import keys_map, keys_map_reversed
+from escape_from_maze.config import keys_map, keys_map_reversed
 import random
 
 

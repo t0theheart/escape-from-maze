@@ -1,8 +1,8 @@
 import random
-from escape_from_maze.global_vars import maze_indents
-from escape_from_maze.global_vars import wall_view
-from escape_from_maze.global_vars import random_wall_map
-from escape_from_maze.colors import wall
+from escape_from_maze.config import maze_indents
+from escape_from_maze.config import wall_view
+from escape_from_maze.config import random_wall_map
+from escape_from_maze.config import wall
 import curses
 
 

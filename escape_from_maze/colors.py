@@ -1,4 +1,7 @@
-from escape_from_maze.global_vars import key, enemy, player, black, yellow, lose_game_screen, win_game_screen, wall
+from escape_from_maze.config import (
+    key, enemy, player, black, yellow, lose_game_screen, win_game_screen, wall,
+    key_color, enemy_color, player_color, wall_color, black_color, yellow_color
+)
 import curses
 
 
@@ -12,13 +15,13 @@ def init_color(number: int, rgb: tuple):
 
 
 def init_colors():
-    init_color(player, (455, 730, 750))
-    init_color(key, (855, 730, 150))
-    init_color(enemy, (800, 400, 400))
-    init_color(wall, (800, 800, 800))
+    init_color(player, player_color)
+    init_color(key, key_color)
+    init_color(enemy, enemy_color)
+    init_color(wall, wall_color)
 
-    init_color(black, (0, 0, 0))
-    init_color(yellow, (855, 730, 150))
+    init_color(black, black_color)
+    init_color(yellow, yellow_color)
 
     init_background(lose_game_screen, curses.COLOR_WHITE, curses.COLOR_RED)
     init_background(win_game_screen, black, yellow)
