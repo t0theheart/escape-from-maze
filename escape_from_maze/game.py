@@ -11,11 +11,6 @@ from escape_from_maze.colors import init_colors
 from time import sleep
 
 
-# temporary func for test
-def print_h_w_window(window, height, width):
-    window.addstr(0, 0, '{0}, {1}'.format(height, width))
-
-
 class Game:
     def __init__(self, window):
         self.window = window
@@ -39,10 +34,8 @@ class Game:
             if self.window_height_width[0] != height or self.window_height_width[1] != width:
                 self.window.clear()
                 coordinates = generate_maze(self.window, height, width)
-                # self.window.addstr(2, 0, '{0}, {1}, {2}, {3}'.format(*coordinates))
                 self.window_height_width = height, width
 
-            #print_h_w_window(self.window, height, width)
             print_press_space_to_start(self.window, height, width)
             key = self.window.getch()
             if key == 32:
