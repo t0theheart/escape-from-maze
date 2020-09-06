@@ -23,3 +23,10 @@ Before the game start, there is a possibility to choose a size of maze.
 If you change the size, the structure of maze will change too.
 
 ![](images/size.gif)
+
+### Enemies
+Player moves in the main thread, but enemies moving is in another thread. 
+**EnemiesManager** manages moving of every enemy. 
+Also there is a possibility to change enemies amount and theirs speed.
+
+![](images/enemies.gif)
