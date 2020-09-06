@@ -30,3 +30,9 @@ Player moves in the main thread, but enemies moving is in another thread.
 Also there is a possibility to change enemies amount and theirs speed.
 
 ![](images/enemies.gif)
+
+
+### Objects appearance
+Object appearance consists of char and color, and both may be changed.
+
+![](images/views.gif)
