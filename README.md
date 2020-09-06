@@ -22,4 +22,4 @@ If you win
 Before the game start, there is a possibility to choose a size of maze. 
 If you change the size, the structure of maze will change too.
 
-![](images/size.gif_1)
+![](images/size.gif)
