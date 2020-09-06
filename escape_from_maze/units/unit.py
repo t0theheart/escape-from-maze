@@ -20,13 +20,12 @@ class Unit:
         pass
 
     def _do_move(self, move):
-        if self._allow_to_move(move):
-            self.game.window.addstr(self.x, self.y, ' ')
-            self.x -= move[0]
-            self.y -= move[1]
-            item_here = self.game.window.inch(self.x, self.y)
-            self.game.window.addstr(self.x, self.y, self.view, curses.color_pair(self.color))
-            self._do_action(item_here)
+        self.game.window.addstr(self.x, self.y, ' ')
+        self.x -= move[0]
+        self.y -= move[1]
+        item_here = self.game.window.inch(self.x, self.y)
+        self.game.window.addstr(self.x, self.y, self.view, curses.color_pair(self.color))
+        self._do_action(item_here)
 
     def _allow_to_move(self, move):
         _x, _y = self.x, self.y

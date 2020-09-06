@@ -25,4 +25,6 @@ class Player(Unit):
                 self.game.win_game()
 
     def do_move(self, key):
-        self._do_move(keys_map[key])
+        move = keys_map[key]
+        if self._allow_to_move(move):
+            self._do_move(move)
