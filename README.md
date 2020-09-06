@@ -7,15 +7,15 @@ Player appears in random generated maze.
 The win condition is collect four keys. But it is not that simple, there are some enemies in maze 
 which you should avoid.
 
-![](images/game.gif_1)
+![](images/game.gif)
 
 If you lose
 
-![](images/lose.gif_1)
+![](images/lose.gif)
 
 If you win
 
-![](images/win.gif_1)
+![](images/win.gif)
 
 
 ### Maze generation
