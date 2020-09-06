@@ -4,9 +4,10 @@ from time import sleep
 
 class EnemiesManager:
 
-    def __init__(self):
+    def __init__(self, wait_before_step: float):
         self.enemies = []
         self._do_moving = True
+        self._wait = wait_before_step
 
     def take_enemies(self, enemies: list):
         self.enemies.extend(enemies)
@@ -18,7 +19,7 @@ class EnemiesManager:
     def move_enemies(self):
         while self._do_moving:
             self._move_enemies()
-            sleep(0.3)
+            sleep(self._wait)
 
     def start(self):
         t = threading.Thread(target=self.move_enemies)

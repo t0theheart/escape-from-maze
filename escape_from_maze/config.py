@@ -30,6 +30,10 @@ enemies_text = settings['enemies_text']
 keys_text = settings['keys_text']
 
 
+enemy_divider = int(settings['enemy_divider'])
+wait_before_step = float(settings['wait_before_step'])
+
+
 # numbers to init color in system
 
 # numbers of colors for game objects
@@ -48,11 +52,6 @@ red = 4
 # background colors
 lose_game_screen = 66
 win_game_screen = 77
-
-
-# dividers for maze's objects
-enemy_divider = 100
-
 
 # horizontal and vertical indents
 maze_indents = (3, 5)
