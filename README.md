@@ -2,6 +2,10 @@
 
 **Escape from maze** is my pet project console game. 
 
+### Class shema
+
+![](schema/class_schema.png)
+
 ### Description
 Player appears in random generated maze. 
 The win condition is collect four keys. But it is not that simple, there are some enemies in maze 
