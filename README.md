@@ -2,9 +2,9 @@
 
 **Escape from maze** is my pet project console game. 
 
-### Class shema
+### Project schema
 
-![](schema/class_schema.png)
+![](schema/project_schema.png)
 
 ### Description
 Player appears in random generated maze. 
