@@ -20,7 +20,6 @@ class Game:
         self.keys_text = None
         self.player = None
         self.window_height_width = (0, 0)
-        self.started = False
         self.game_over = False
 
     def _init_settings(self):
