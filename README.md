@@ -40,3 +40,10 @@ Also there is a possibility to change enemies amount and theirs speed.
 Object appearance consists of char and color, and both may be changed.
 
 ![](images/views.gif)
+
+
+### Play
+The command to start game
+```shell script
+$ python start.py
+```
